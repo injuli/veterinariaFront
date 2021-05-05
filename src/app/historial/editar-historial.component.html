@@ -1,0 +1,49 @@
+<div class="container" *ngIf="historial">
+    <div class="row mt-5">
+        <div class="col-md-12 mx-auto ">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cedula">Número de Cédula</label>
+                            <input type="number" class="form-control" id="cedula" name="cedula" [(ngModel)]="historial.cedula" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="historial.nombre" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="historial.apellido" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="tipo">Tipo de Identificación</label>
+                            <select class="form-control" id="tipo" name="tipo" [(ngModel)]="historial.tipo">
+                            <option selected>{{historial.tipo}}</option>
+                            <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                            <option value="Cédula de Extranjería">Cédula de Extranjería</option>
+                            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                            <option value="Registro civil">Registro civil</option>
+                          </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <br>
+
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
